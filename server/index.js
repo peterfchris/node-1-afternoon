@@ -1,6 +1,7 @@
 const express = require('express')
 const products = require('./products')
 const getProducts = require('./functions/getProducts')
+const getProduct = require('./functions/getProduct')
 const app = express()
 
 
@@ -13,9 +14,7 @@ app.get('/api/products', (req, res) => {
     res.status(200).send(productData)
 })
 
-app.get(`/api/products/:id`, (req, res) => {
-    const product = getProductById()
-})
+app.get(`/api/product/:id`, getProduct)
 
 const port = 3002
 
