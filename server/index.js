@@ -6,13 +6,7 @@ const app = express()
 
 
 
-app.get('/api/products', (req, res) => {
-    if (req.query.id) {
-        res.status(200).send(getProducts(products, req.query.id))
-    }
-    const productData = getProducts(products)
-    res.status(200).send(productData)
-})
+app.get('/api/products', getProducts)
 
 app.get(`/api/product/:id`, getProduct)
 
